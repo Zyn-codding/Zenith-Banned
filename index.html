@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -8,36 +7,57 @@
     :root{
       --bg:#08060a;
       --glass: rgba(255,255,255,0.03);
-      --accent1: #ff4d6d;
+      --accent1: #ff4d6d; /* pink */
+      --accent2: #ffd24d; /* yellow */
+      --accent3: #ff8a00; /* orange */
       --neon-cyan: #4bf0ff;
       --green: #7cff6b;
-      --mono: 'Source Code Pro', monospace;
+      --mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
     }
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;background:linear-gradient(180deg,#05050a 0%, #0b0810 60%);font-family:var(--mono);color:#e6e6e6}
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
-    .card{width:960px;max-width:98%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:22px;box-shadow:0 8px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
-    .header{display:flex;align-items:center;gap:12px}
-    .dev-title{font-size:28px;letter-spacing:8px;font-weight:700}
-    .rainbow{display:inline-block;padding:4px 10px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--neon-cyan),#b28cff);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .section{margin-top:18px;padding:18px;border-radius:10px;background:var(--glass);border:1px dashed rgba(255,255,255,0.03)}
-    .key-row{display:flex;gap:12px;align-items:center}
-    .label{font-size:13px;opacity:0.9}
-    .input-key{padding:12px 14px;border-radius:12px;border:2px solid rgba(0,0,0,0.4);background:linear-gradient(90deg,#fff7c4,#fff0a0);outline:none;color:#111;font-weight:700;min-width:260px}
-    .btn{padding:10px 14px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
-    .btn.primary{background:linear-gradient(90deg,var(--neon-cyan),var(--accent1));color:#050505}
-    .notice{margin-top:12px;height:28px;display:flex;align-items:center;gap:8px}
-    .doc{display:none;margin-top:16px;padding:16px;border-radius:10px;background:linear-gradient(90deg, rgba(255,138,0,0.08), rgba(255,77,109,0.03));border:1px solid rgba(255,138,0,0.09)}
-    .doc .title{font-size:20px;font-weight:900;letter-spacing:6px}
-    .banned-panel{margin-top:12px;padding:14px;border-radius:8px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.03)}
-    input[type=text], select{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.015);color:inherit;font-family:var(--mono)}
-    .big{flex:1}
-    .result{margin-top:12px;height:34px;display:flex;align-items:center;font-weight:700}
-    @media(max-width:700px){
-      .key-row{flex-direction:column;align-items:stretch}
-      .input-key{width:100%}
-      .btn{width:100%}
-    }
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}.card{width:960px;max-width:98%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:22px;box-shadow:0 8px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+.header{display:flex;align-items:center;gap:12px}
+.dev-title{font-size:28px;letter-spacing:8px;font-weight:700}
+.rainbow{display:inline-block;padding:4px 10px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--neon-cyan),#b28cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.section{margin-top:18px;padding:18px;border-radius:10px;background:var(--glass);border:1px dashed rgba(255,255,255,0.03)}
+
+/* KEY input */
+.key-row{display:flex;gap:12px;align-items:center}
+.label{font-size:13px;opacity:0.9}
+.input-key{padding:12px 14px;border-radius:8px;border:2px solid rgba(0,0,0,0.4);background:rgba(255,255,255,0.02);outline:none;color:#111;font-weight:700}
+.input-key.yellow{background:linear-gradient(90deg,#fff7c4,#fff0a0);color:#111}
+.btn{padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
+.btn.primary{background:linear-gradient(90deg,var(--neon-cyan),var(--accent1));color:#050505}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
+
+.notice{margin-top:12px;height:28px;display:flex;align-items:center;gap:8px}
+.notice .text{font-size:14px}
+
+/* DOCUMENT view */
+.doc{display:none;margin-top:16px;padding:16px;border-radius:10px;background:linear-gradient(90deg, rgba(255,138,0,0.08), rgba(255,77,109,0.03));border:1px solid rgba(255,138,0,0.09)}
+.doc .title{font-size:20px;font-weight:900;letter-spacing:6px}
+.doc .sub{font-size:13px;opacity:0.9;margin-top:6px}
+
+.banned-panel{margin-top:12px;padding:14px;border-radius:8px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.03)}
+.row{display:flex;gap:10px;align-items:center}
+input[type=text], select{padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.015);color:inherit;font-family:var(--mono);min-width:0}
+select{appearance:none}
+.big{flex:1}
+
+.result{margin-top:12px;height:34px;display:flex;align-items:center;font-weight:700}
+.small-muted{font-size:12px;opacity:0.8}
+
+/* hacker style */
+.glow{filter:drop-shadow(0 6px 16px rgba(75,240,255,0.08))}
+.rainbow-border{border-image:linear-gradient(90deg,var(--accent1),var(--neon-cyan),#b28cff) 1}
+
+.center{text-align:center}
+
+@media(max-width:600px){.header{flex-direction:column;align-items:flex-start}.dev-title{font-size:20px}}
+
   </style>
 </head>
 <body>
@@ -46,43 +66,46 @@
       <div class="header">
         <div class="dev-title">D E V : <span class="rainbow">ĐΣBØYS</span></div>
         <div style="margin-left:auto" class="small-muted">Style: hacker</div>
+      </div><!-- KEY SECTION -->
+  <div class="section">
+    <div class="label">INPUT KEY 🔑</div>
+    <div class="key-row" style="margin-top:8px">
+      <input id="keyInput" class="input-key yellow" placeholder="[ INPUT KEY ]" maxlength="8" />
+      <button id="checkKeyBtn" class="btn primary">Submit</button>
+    </div>
+    <div class="notice" id="keyNotice"></div>
+  </div>
+
+  <!-- DOCUMENT / AFTER KEY -->
+  <div class="doc" id="document">
+    <div class="title" style="color:var(--accent3)">DOCUMENT 419</div>
+    <div class="sub">ZENITH - <span style="background:linear-gradient(90deg,var(--accent1),var(--neon-cyan));-webkit-background-clip:text;background-clip:text;color:transparent">BANNED</span></div>
+    <div class="sub" style="margin-top:6px">D E V : <strong class="rainbow">ĐΣBØYS</strong> (Zyn)</div>
+
+    <div class="banned-panel">
+      <div class="row" style="margin-bottom:8px">
+        <input id="targetInput" type="text" class="big" placeholder="[ INPUT ID TARGET ]" />
+      </div>
+      <div class="row">
+        <select id="modeSelect" class="big">
+          <option value="">--- SELECT MODE ---</option>
+          <option value="useless">--- Useless ---</option>
+          <option value="whatsapp">WHATSAPP BANNED</option>
+          <option value="telegram">TELEGRAM BANNED</option>
+          <option value="ml">MOBILE LEGEND BANNED</option>
+          <option value="pubg">PUBG BANNED</option>
+          <option value="ff">FREE FIRE BANNED</option>
+        </select>
+        <button id="sendBtn" class="btn ghost">[ SEND BANNED ]</button>
       </div>
 
-      <!-- KEY SECTION -->
-      <div class="section">
-        <div class="label">INPUT KEY 🔑</div>
-        <div class="key-row" style="margin-top:8px">
-          <input id="keyInput" class="input-key" placeholder="[ INPUT KEY ]" maxlength="8" />
-          <button id="checkKeyBtn" class="btn primary">Submit</button>
-        </div>
-        <div class="notice" id="keyNotice"></div>
-      </div>
-
-      <!-- DOCUMENT / AFTER KEY -->
-      <div class="doc" id="document">
-        <div class="title" style="color:#ff8a00">DOCUMENT 419</div>
-        <div style="margin-top:6px">ZENITH - <strong class="rainbow">BANNED</strong></div>
-        <div class="banned-panel">
-          <div style="margin-bottom:8px"><input id="targetInput" type="text" class="big" placeholder="[ INPUT ID TARGET ]" /></div>
-          <div style="display:flex;gap:10px;align-items:center">
-            <select id="modeSelect" class="big">
-              <option value="">--- SELECT MODE ---</option>
-              <option value="useless">--- Useless ---</option>
-              <option value="whatsapp">WHATSAPP BANNED</option>
-              <option value="telegram">TELEGRAM BANNED</option>
-              <option value="ml">MOBILE LEGEND BANNED</option>
-              <option value="pubg">PUBG BANNED</option>
-              <option value="ff">FREE FIRE BANNED</option>
-            </select>
-            <button id="sendBtn" class="btn primary" style="background:linear-gradient(90deg,#00c6ff,#ff3cac);color:#000">[ SEND BANNED ]</button>
-          </div>
-          <div class="result" id="resultArea"></div>
-        </div>
-      </div>
+      <div class="result" id="resultArea"></div>
     </div>
   </div>
 
-  <script>
+</div>
+
+  </div>  <script>
     const keyInput = document.getElementById('keyInput');
     const checkKeyBtn = document.getElementById('checkKeyBtn');
     const keyNotice = document.getElementById('keyNotice');
@@ -92,59 +115,78 @@
     const targetInput = document.getElementById('targetInput');
     const resultArea = document.getElementById('resultArea');
 
-    function showNotice(text, color){
-      keyNotice.innerHTML = '<div style="color:'+ (color || '#fff') +'">'+text+'</div>';
+    function showNotice(html, color){
+      keyNotice.innerHTML = '<div class="text" style="color:'+ (color||'#fff') +'">'+html+'</div>';
     }
 
-    checkKeyBtn.addEventListener('click', () => {
+    function resetResult(){ resultArea.textContent=''; resultArea.style.color=''; }
+
+    checkKeyBtn.addEventListener('click', ()=>{
+      resetResult();
       const v = (keyInput.value||'').trim();
       if(v === '0001'){
         showNotice('wait 5 sec', 'var(--neon-cyan)');
         checkKeyBtn.disabled = true;
         keyInput.disabled = true;
-        setTimeout(() => {
-          documentView.style.display = 'block';
+        setTimeout(()=>{
+          documentView.style.display='block';
           showNotice('KEY ACCEPTED — WELCOME', 'var(--green)');
-        }, 5000);
+        },5000);
       } else {
-        showNotice('kesalahan key', '#ff4d6d');
+        showNotice('kesalahan key', 'var(--accent1)');
       }
     });
 
-    keyInput.addEventListener('keydown', (e) => { if(e.key === 'Enter') checkKeyBtn.click(); });
+    keyInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') checkKeyBtn.click(); });
 
-    sendBtn.addEventListener('click', () => {
-      resultArea.textContent = '';
+    sendBtn.addEventListener('click', ()=>{
+      resetResult();
       const mode = modeSelect.value;
       const target = (targetInput.value||'').trim();
 
-      if(!mode || mode === 'useless'){
+      if(!mode){
         resultArea.textContent = 'Unknown mode?';
-        resultArea.style.color = '#ff4d6d';
-        return;
-      }
-      if(!target){
-        resultArea.textContent = 'tulis target dulu';
-        resultArea.style.color = '#ff4d6d';
-        return;
-      }
-      if(/[a-zA-Z]/.test(target)){
-        resultArea.textContent = 'kok pake huruf bro??...';
-        resultArea.style.color = '#ff4d6d';
+        resultArea.style.color = 'var(--accent1)';
         return;
       }
 
-      resultArea.textContent = `Sending ${mode.toUpperCase()} to ${target} ...`;
+      if(mode === 'useless'){
+        resultArea.textContent = 'Unknown mode?';
+        resultArea.style.color = 'var(--accent1)';
+        return;
+      }
+
+      if(!target){
+        resultArea.textContent = 'tulis target dulu';
+        resultArea.style.color = 'var(--accent1)';
+        return;
+      }
+
+      if(/[a-zA-Z]/.test(target)){
+        resultArea.textContent = 'kok pake huruf bro??...';
+        resultArea.style.color = 'var(--accent1)';
+        return;
+      }
+
+      resultArea.textContent = `Sending ${mode.toUpperCase().replace('_',' ')} to ${target} ...`;
       resultArea.style.color = 'var(--neon-cyan)';
+
       sendBtn.disabled = true;
-      setTimeout(() => {
+      setTimeout(()=>{
         resultArea.textContent = 'BERHASIL — target processed';
         resultArea.style.color = 'var(--green)';
         sendBtn.disabled = false;
-      }, 2200);
+      },2200);
     });
 
-    targetInput.addEventListener('keydown', (e) => { if(e.key === 'Enter') sendBtn.click(); });
-  </script>
-</body>
-                </html>
+    targetInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') sendBtn.click(); });
+
+    modeSelect.addEventListener('change', ()=>{
+      resetResult();
+      if(modeSelect.value === 'useless'){
+        resultArea.textContent = 'Mode "Useless" dipilih — tidak akan melakukan apa-apa.';
+        resultArea.style.color = 'var(--small-muted)';
+      }
+    });
+  </script></body>
+</html>
