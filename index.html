@@ -197,4 +197,167 @@ select{appearance:none}
       }
     });
   </script></body>
+</html>.notice .text{font-size:14px}
+
+/* DOCUMENT view */
+.doc{display:none;margin-top:16px;padding:16px;border-radius:10px;background:linear-gradient(90deg, rgba(255,138,0,0.08), rgba(255,77,109,0.03));border:1px solid rgba(255,138,0,0.09)}
+.doc .title{font-size:20px;font-weight:900;letter-spacing:6px}
+.doc .sub{font-size:13px;opacity:0.9;margin-top:6px}
+
+.banned-panel{margin-top:12px;padding:14px;border-radius:8px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.03)}
+.row{display:flex;gap:10px;align-items:center}
+input[type=text], select{padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.015);color:inherit;font-family:var(--mono);min-width:0}
+select{appearance:none}
+.big{flex:1}
+
+.result{margin-top:12px;height:34px;display:flex;align-items:center;font-weight:700}
+.small-muted{font-size:12px;opacity:0.8}
+
+/* hacker style */
+.glow{filter:drop-shadow(0 6px 16px rgba(75,240,255,0.08))}
+.rainbow-border{border-image:linear-gradient(90deg,var(--accent1),var(--neon-cyan),#b28cff) 1}
+
+.center{text-align:center}
+
+@media(max-width:600px){.header{flex-direction:column;align-items:flex-start}.dev-title{font-size:20px}}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="header">
+        <div class="dev-title">D E V : <span class="rainbow">ĐΣBØYS</span></div>
+        <div style="margin-left:auto" class="small-muted">Style: hacker</div>
+      </div><!-- KEY SECTION -->
+  <div class="section">
+    <div class="label">INPUT KEY 🔑</div>
+    <div class="key-row" style="margin-top:8px">
+      <input id="keyInput" class="input-key yellow" placeholder="[ INPUT KEY ]" maxlength="8" />
+      <button id="checkKeyBtn" class="btn primary">Submit</button>
+    </div>
+    <div class="notice" id="keyNotice"><div class="text small-muted">Masukkan key. (Key: <strong>0001</strong>)</div></div>
+  </div>
+
+  <!-- DOCUMENT / AFTER KEY -->
+  <div class="doc" id="document">
+    <div class="title" style="color:var(--accent3)">DOCUMENT 419</div>
+    <div class="sub">ZENITH - <span style="background:linear-gradient(90deg,var(--accent1),var(--neon-cyan));-webkit-background-clip:text;background-clip:text;color:transparent">BANNED</span></div>
+    <div class="sub" style="margin-top:6px">D E V : <strong class="rainbow">ĐΣBØYS</strong> (Zyn)</div>
+
+    <div class="banned-panel">
+      <div class="row" style="margin-bottom:8px">
+        <input id="targetInput" type="text" class="big" placeholder="[ INPUT ID TARGET ]" />
+      </div>
+      <div class="row">
+        <select id="modeSelect" class="big">
+          <option value="">--- SELECT MODE ---</option>
+          <option value="useless">--- Useless ---</option>
+          <option value="whatsapp">WHATSAPP BANNED</option>
+          <option value="telegram">TELEGRAM BANNED</option>
+          <option value="ml">MOBILE LEGEND BANNED</option>
+          <option value="pubg">PUBG BANNED</option>
+          <option value="ff">FREE FIRE BANNED</option>
+        </select>
+        <button id="sendBtn" class="btn ghost">[ SEND BANNED ]</button>
+      </div>
+
+      <div class="result" id="resultArea"></div>
+    </div>
+  </div>
+
+</div>
+
+  </div>  <script>
+    const keyInput = document.getElementById('keyInput');
+    const checkKeyBtn = document.getElementById('checkKeyBtn');
+    const keyNotice = document.getElementById('keyNotice');
+    const documentView = document.getElementById('document');
+    const sendBtn = document.getElementById('sendBtn');
+    const modeSelect = document.getElementById('modeSelect');
+    const targetInput = document.getElementById('targetInput');
+    const resultArea = document.getElementById('resultArea');
+
+    function showNotice(html, color){
+      keyNotice.innerHTML = '<div class="text" style="color:'+ (color||'#fff') +'">'+html+'</div>';
+    }
+
+    function resetResult(){ resultArea.textContent=''; resultArea.style.color=''; }
+
+    checkKeyBtn.addEventListener('click', ()=>{
+      resetResult();
+      const v = (keyInput.value||'').trim();
+      if(v === '0001'){
+        showNotice('wait 5 sec', 'var(--neon-cyan)');
+        checkKeyBtn.disabled = true;
+        keyInput.disabled = true;
+        setTimeout(()=>{
+          documentView.style.display='block';
+          showNotice('KEY ACCEPTED — WELCOME', 'var(--green)');
+        },5000);
+      } else {
+        showNotice('kesalahan key', 'var(--accent1)');
+      }
+    });
+
+    // allow pressing Enter on key input
+    keyInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') checkKeyBtn.click(); });
+
+    sendBtn.addEventListener('click', ()=>{
+      resetResult();
+      const mode = modeSelect.value;
+      const target = (targetInput.value||'').trim();
+
+      // Mode not selected or useless
+      if(!mode){
+        resultArea.textContent = 'Unknown mode?';
+        resultArea.style.color = 'var(--accent1)';
+        return;
+      }
+
+      if(mode === 'useless'){
+        resultArea.textContent = 'Unknown mode?';
+        resultArea.style.color = 'var(--accent1)';
+        return;
+      }
+
+      // Mode selected but empty target
+      if(!target){
+        resultArea.textContent = 'tulis target dulu';
+        resultArea.style.color = 'var(--accent1)';
+        return;
+      }
+
+      // If target contains any letter (a-z or A-Z), show message
+      if(/[a-zA-Z]/.test(target)){
+        resultArea.textContent = 'kok pake huruf bro??...';
+        resultArea.style.color = 'var(--accent1)';
+        return;
+      }
+
+      // If got here, show simulated success message
+      resultArea.textContent = `Sending ${mode.toUpperCase().replace('_',' ')} to ${target} ...`;
+      resultArea.style.color = 'var(--neon-cyan)';
+
+      // Simulate some action/time
+      sendBtn.disabled = true;
+      setTimeout(()=>{
+        resultArea.textContent = 'BERHASIL — target processed';
+        resultArea.style.color = 'var(--green)';
+        sendBtn.disabled = false;
+      },2200);
+    });
+
+    // Allow Enter to send when focused on target
+    targetInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') sendBtn.click(); });
+
+    // small UX: if user selects useless, show hint
+    modeSelect.addEventListener('change', ()=>{
+      resetResult();
+      if(modeSelect.value === 'useless'){
+        resultArea.textContent = 'Mode "Useless" dipilih — tidak akan melakukan apa-apa.';
+        resultArea.style.color = 'var(--small-muted)';
+      }
+    });
+  </script></body>
 </html>
