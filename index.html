@@ -1,40 +1,104 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ĐΣBØYS — ZENITH</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ĐΣBØYS</title>
   <style>
-    :root{
-      --bg:#08060a;
-      --glass: rgba(255,255,255,0.03);
-      --accent1: #ff4d6d; /* pink */
-      --accent2: #ffd24d; /* yellow */
-      --accent3: #ff8a00; /* orange */
-      --neon-cyan: #4bf0ff;
-      --green: #7cff6b;
-      --mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    body {
+      background-color: #0e0e0e;
+      color: #ddd;
+      font-family: "Courier New", monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#05050a 0%, #0b0810 60%);font-family:var(--mono);color:#e6e6e6}
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}.card{width:960px;max-width:98%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:22px;box-shadow:0 8px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
+    h1 {
+      font-size: 2em;
+      letter-spacing: 10px;
+      color: white;
+    }
+    .rainbow {
+      background: linear-gradient(90deg, #ff007c, #ff7c00, #ffee00, #00ff88, #00aaff, #cc00ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: bold;
+      background-size: 400%;
+      animation: gradientMove 6s infinite alternate;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% }
+      100% { background-position: 100% }
+    }
+    .style-text {
+      margin-top: 5px;
+      color: #999;
+    }
+    .box {
+      background-color: #1a1a1a;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.05);
+      margin-top: 30px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1em;
+      letter-spacing: 2px;
+    }
+    input {
+      background-color: #fff2b0;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      width: 200px;
+      font-size: 1em;
+      text-align: center;
+    }
+    button {
+      background: linear-gradient(90deg, #00c6ff, #ff3cac);
+      border: none;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>D E V : <span class="rainbow">ĐΣBØYS</span></h1>
+  <p class="style-text">Style: hacker</p>
 
-.header{display:flex;align-items:center;gap:12px}
-.dev-title{font-size:28px;letter-spacing:8px;font-weight:700}
-.rainbow{display:inline-block;padding:4px 10px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--neon-cyan),#b28cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  <div class="box">
+    <label>INPUT KEY 🔑</label>
+    <input type="text" placeholder="[ INPUT KEY ]" id="keyInput">
+    <button onclick="checkKey()">Submit</button>
+  </div>
 
-.section{margin-top:18px;padding:18px;border-radius:10px;background:var(--glass);border:1px dashed rgba(255,255,255,0.03)}
-
-/* KEY input */
-.key-row{display:flex;gap:12px;align-items:center}
-.label{font-size:13px;opacity:0.9}
-.input-key{padding:12px 14px;border-radius:8px;border:2px solid rgba(0,0,0,0.4);background:rgba(255,255,255,0.02);outline:none;color:#111;font-weight:700}
-.input-key.yellow{background:linear-gradient(90deg,#fff7c4,#fff0a0);color:#111}
-.btn{padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
-.btn.primary{background:linear-gradient(90deg,var(--neon-cyan),var(--accent1));color:#050505}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
-
-.notice{margin-top:12px;height:28px;display:flex;align-items:center;gap:8px}
-.notice .text{font-size:14px}
+  <script>
+    function checkKey() {
+      const key = document.getElementById("keyInput").value.trim();
+      if (key === "0001") {
+        alert("Wait 5 sec...");
+        setTimeout(() => {
+          alert("DOCUMENT 419\nZENITH - B");
+        }, 5000);
+      } else {
+        alert("Kesalahan key");
+      }
+    }
+  </script>
+</body>
+</html>.notice .text{font-size:14px}
 
 /* DOCUMENT view */
 .doc{display:none;margin-top:16px;padding:16px;border-radius:10px;background:linear-gradient(90deg, rgba(255,138,0,0.08), rgba(255,77,109,0.03));border:1px solid rgba(255,138,0,0.09)}
