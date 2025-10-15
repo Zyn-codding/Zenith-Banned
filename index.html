@@ -117,6 +117,89 @@
     }
   </script>
 </body>
+</html>    .rainbow {
+      display:inline-block;
+      padding:4px 10px;
+      border-radius:8px;
+      background:linear-gradient(90deg,var(--accent1),var(--neon-cyan),#b28cff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .section { margin-top:18px; padding:18px; border-radius:10px; background:var(--glass); border:1px dashed rgba(255,255,255,0.03) }
+
+    .key-row { display:flex; gap:12px; align-items:center }
+    .label { font-size:13px; opacity:0.9 }
+    .input-key {
+      padding:12px 14px;
+      border-radius:8px;
+      border:2px solid rgba(0,0,0,0.4);
+      background:rgba(255,255,255,0.02);
+      outline:none;
+      color:#111;
+      font-weight:700;
+    }
+    .input-key.yellow {
+      background:linear-gradient(90deg,#fff7c4,#fff0a0);
+      color:#111;
+    }
+    .btn {
+      padding:10px 14px;
+      border-radius:8px;
+      border:0;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .btn.primary {
+      background:linear-gradient(90deg,var(--neon-cyan),var(--accent1));
+      color:#050505;
+    }
+    .btn.ghost {
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:inherit;
+    }
+
+    .notice { margin-top:12px; height:28px; display:flex; align-items:center; gap:8px }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="header">
+        <span class="dev-title">D E V :</span>
+        <span class="rainbow">ĐΣBØYS</span>
+      </div>
+
+      <div class="section">
+        <div class="label">INPUT KEY 🔑</div>
+        <div class="key-row">
+          <input type="text" id="keyInput" class="input-key yellow" placeholder="Masukkan key..." />
+          <button class="btn primary" onclick="checkKey()">KIRIM</button>
+        </div>
+        <div id="notice" class="notice"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function checkKey() {
+      const input = document.getElementById('keyInput').value.trim();
+      const notice = document.getElementById('notice');
+      if (input === "0002") {
+        notice.textContent = "Wait 5 sec...";
+        notice.style.color = "var(--green)";
+        setTimeout(() => {
+          window.location.href = "document419.html"; // Halaman berikutnya
+        }, 5000);
+      } else {
+        notice.textContent = "Kesalahan key!";
+        notice.style.color = "var(--accent1)";
+      }
+    }
+  </script>
+</body>
 </html>          <option value="ff">FREE FIRE BANNED</option>
         </select>
         <button id="sendBtn" class="btn ghost">[ SEND BANNED ]</button>
