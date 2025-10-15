@@ -1,298 +1,33 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ĐΣBØYS — ZENITH</title>
-  <style>
-    :root {
-      --bg:#08060a;
-      --glass: rgba(255,255,255,0.03);
-      --accent1: #ff4d6d;
-      --accent2: #ffd24d;
-      --accent3: #ff8a00;
-      --neon-cyan: #4bf0ff;
-      --green: #7cff6b;
-      --mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-    }
-    * { box-sizing: border-box }
-    html,body {
-      height: 100%;
-      margin: 0;
-      background: linear-gradient(180deg,#05050a 0%, #0b0810 60%);
-      font-family: var(--mono);
-      color: #e6e6e6;
-    }
-    .wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px }
-    .card {
-      width: 960px; max-width: 98%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius: 14px; padding: 22px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-      border: 1px solid rgba(255,255,255,0.03);
-    }
+<!DOCTYPE html><html lang="id">  <head>  
+  <meta charset="utf-8" />  
+  <meta name="viewport" content="width=device-width,initial-scale=1" />  
+  <title>ĐΣBØYS — ZENITH</title>  
+  <style>  
+    :root{  
+      --bg:#08060a;  
+      --glass: rgba(255,255,255,0.03);  
+      --accent1: #ff4d6d; /* pink */  
+      --accent2: #ffd24d; /* yellow */  
+      --accent3: #ff8a00; /* orange */  
+      --neon-cyan: #4bf0ff;  
+      --green: #7cff6b;  
+      --mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;  
+    }  
+    *{box-sizing:border-box}  
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#05050a 0%, #0b0810 60%);font-family:var(--mono);color:#e6e6e6}  
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}.card{width:960px;max-width:98%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:22px;box-shadow:0 8px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}  .header{display:flex;align-items:center;gap:12px}
+.dev-title{font-size:28px;letter-spacing:8px;font-weight:700}
+.rainbow{display:inline-block;padding:4px 10px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--neon-cyan),#b28cff);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-    .header { display:flex; align-items:center; gap:12px }
-    .dev-title { font-size:28px; letter-spacing:8px; font-weight:700 }
-    .rainbow {
-      display:inline-block;
-      padding:4px 10px;
-      border-radius:8px;
-      background:linear-gradient(90deg,var(--accent1),var(--neon-cyan),#b28cff);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
+.section{margin-top:18px;padding:18px;border-radius:10px;background:var(--glass);border:1px dashed rgba(255,255,255,0.03)}
 
-    .section { margin-top:18px; padding:18px; border-radius:10px; background:var(--glass); border:1px dashed rgba(255,255,255,0.03) }
+/* KEY input */
+.key-row{display:flex;gap:12px;align-items:center}
+.label{font-size:13px;opacity:0.9}
+.input-key{padding:12px 14px;border-radius:8px;border:2px solid rgba(0,0,0,0.4);background:rgba(255,255,255,0.02);outline:none;color:#111;font-weight:700}
+.input-key.yellow{background:linear-gradient(90deg,#fff7c4,#fff0a0);color:#111}
+.btn{padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
+.btn.primary{background:linear-gradient(90deg,var(--neon-cyan),var(--accent1));color:#050505}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
 
-    .key-row { display:flex; gap:12px; align-items:center }
-    .label { font-size:13px; opacity:0.9 }
-    .input-key {
-      padding:12px 14px;
-      border-radius:8px;
-      border:2px solid rgba(0,0,0,0.4);
-      background:rgba(255,255,255,0.02);
-      outline:none;
-      color:#111;
-      font-weight:700;
-    }
-    .input-key.yellow {
-      background:linear-gradient(90deg,#fff7c4,#fff0a0);
-      color:#111;
-    }
-    .btn {
-      padding:10px 14px;
-      border-radius:8px;
-      border:0;
-      cursor:pointer;
-      font-weight:700;
-    }
-    .btn.primary {
-      background:linear-gradient(90deg,var(--neon-cyan),var(--accent1));
-      color:#050505;
-    }
-    .btn.ghost {
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.06);
-      color:inherit;
-    }
-
-    .notice { margin-top:12px; height:28px; display:flex; align-items:center; gap:8px }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card">
-      <div class="header">
-        <span class="dev-title">D E V :</span>
-        <span class="rainbow">ĐΣBØYS</span>
-      </div>
-
-      <div class="section">
-        <div class="label">INPUT KEY 🔑</div>
-        <div class="key-row">
-          <input type="text" id="keyInput" class="input-key yellow" placeholder="Masukkan key..." />
-          <button class="btn primary" onclick="checkKey()">KIRIM</button>
-        </div>
-        <div id="notice" class="notice"></div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function checkKey() {
-      const input = document.getElementById('keyInput').value.trim();
-      const notice = document.getElementById('notice');
-      if (input === "0002") {
-        notice.textContent = "Wait 5 sec...";
-        notice.style.color = "var(--green)";
-        setTimeout(() => {
-          window.location.href = "document419.html"; // Halaman berikutnya
-        }, 5000);
-      } else {
-        notice.textContent = "Kesalahan key!";
-        notice.style.color = "var(--accent1)";
-      }
-    }
-  </script>
-</body>
-</html>    .rainbow {
-      display:inline-block;
-      padding:4px 10px;
-      border-radius:8px;
-      background:linear-gradient(90deg,var(--accent1),var(--neon-cyan),#b28cff);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-
-    .section { margin-top:18px; padding:18px; border-radius:10px; background:var(--glass); border:1px dashed rgba(255,255,255,0.03) }
-
-    .key-row { display:flex; gap:12px; align-items:center }
-    .label { font-size:13px; opacity:0.9 }
-    .input-key {
-      padding:12px 14px;
-      border-radius:8px;
-      border:2px solid rgba(0,0,0,0.4);
-      background:rgba(255,255,255,0.02);
-      outline:none;
-      color:#111;
-      font-weight:700;
-    }
-    .input-key.yellow {
-      background:linear-gradient(90deg,#fff7c4,#fff0a0);
-      color:#111;
-    }
-    .btn {
-      padding:10px 14px;
-      border-radius:8px;
-      border:0;
-      cursor:pointer;
-      font-weight:700;
-    }
-    .btn.primary {
-      background:linear-gradient(90deg,var(--neon-cyan),var(--accent1));
-      color:#050505;
-    }
-    .btn.ghost {
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.06);
-      color:inherit;
-    }
-
-    .notice { margin-top:12px; height:28px; display:flex; align-items:center; gap:8px }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card">
-      <div class="header">
-        <span class="dev-title">D E V :</span>
-        <span class="rainbow">ĐΣBØYS</span>
-      </div>
-
-      <div class="section">
-        <div class="label">INPUT KEY 🔑</div>
-        <div class="key-row">
-          <input type="text" id="keyInput" class="input-key yellow" placeholder="Masukkan key..." />
-          <button class="btn primary" onclick="checkKey()">KIRIM</button>
-        </div>
-        <div id="notice" class="notice"></div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function checkKey() {
-      const input = document.getElementById('keyInput').value.trim();
-      const notice = document.getElementById('notice');
-      if (input === "0002") {
-        notice.textContent = "Wait 5 sec...";
-        notice.style.color = "var(--green)";
-        setTimeout(() => {
-          window.location.href = "document419.html"; // Halaman berikutnya
-        }, 5000);
-      } else {
-        notice.textContent = "Kesalahan key!";
-        notice.style.color = "var(--accent1)";
-      }
-    }
-  </script>
-</body>
-</html>          <option value="ff">FREE FIRE BANNED</option>
-        </select>
-        <button id="sendBtn" class="btn ghost">[ SEND BANNED ]</button>
-      </div>
-
-      <div class="result" id="resultArea"></div>
-    </div>
-  </div>
-
-</div>
-
-  </div>  <script>
-    const keyInput = document.getElementById('keyInput');
-    const checkKeyBtn = document.getElementById('checkKeyBtn');
-    const keyNotice = document.getElementById('keyNotice');
-    const documentView = document.getElementById('document');
-    const sendBtn = document.getElementById('sendBtn');
-    const modeSelect = document.getElementById('modeSelect');
-    const targetInput = document.getElementById('targetInput');
-    const resultArea = document.getElementById('resultArea');
-
-    function showNotice(html, color){
-      keyNotice.innerHTML = '<div class="text" style="color:'+ (color||'#fff') +'">'+html+'</div>';
-    }
-
-    function resetResult(){ resultArea.textContent=''; resultArea.style.color=''; }
-
-    checkKeyBtn.addEventListener('click', ()=>{
-      resetResult();
-      const v = (keyInput.value||'').trim();
-      if(v === '0001'){
-        showNotice('wait 5 sec', 'var(--neon-cyan)');
-        checkKeyBtn.disabled = true;
-        keyInput.disabled = true;
-        setTimeout(()=>{
-          documentView.style.display='block';
-          showNotice('KEY ACCEPTED — WELCOME', 'var(--green)');
-        },5000);
-      } else {
-        showNotice('kesalahan key', 'var(--accent1)');
-      }
-    });
-
-    keyInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') checkKeyBtn.click(); });
-
-    sendBtn.addEventListener('click', ()=>{
-      resetResult();
-      const mode = modeSelect.value;
-      const target = (targetInput.value||'').trim();
-
-      if(!mode){
-        resultArea.textContent = 'Unknown mode?';
-        resultArea.style.color = 'var(--accent1)';
-        return;
-      }
-
-      if(mode === 'useless'){
-        resultArea.textContent = 'Unknown mode?';
-        resultArea.style.color = 'var(--accent1)';
-        return;
-      }
-
-      if(!target){
-        resultArea.textContent = 'tulis target dulu';
-        resultArea.style.color = 'var(--accent1)';
-        return;
-      }
-
-      if(/[a-zA-Z]/.test(target)){
-        resultArea.textContent = 'kok pake huruf bro??...';
-        resultArea.style.color = 'var(--accent1)';
-        return;
-      }
-
-      resultArea.textContent = `Sending ${mode.toUpperCase().replace('_',' ')} to ${target} ...`;
-      resultArea.style.color = 'var(--neon-cyan)';
-
-      sendBtn.disabled = true;
-      setTimeout(()=>{
-        resultArea.textContent = 'BERHASIL — target processed';
-        resultArea.style.color = 'var(--green)';
-        sendBtn.disabled = false;
-      },2200);
-    });
-
-    targetInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') sendBtn.click(); });
-
-    modeSelect.addEventListener('change', ()=>{
-      resetResult();
-      if(modeSelect.value === 'useless'){
-        resultArea.textContent = 'Mode "Useless" dipilih — tidak akan melakukan apa-apa.';
-        resultArea.style.color = 'var(--small-muted)';
-      }
-    });
-  </script></body>
-</html>
+.notice{margin-top:12px;height:28px;display:flex;align-items:center;gap:8px}
