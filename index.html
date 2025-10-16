@@ -1,33 +1,118 @@
-<!DOCTYPE html><html lang="id">  <head>  
-  <meta charset="utf-8" />  
-  <meta name="viewport" content="width=device-width,initial-scale=1" />  
-  <title>ĐΣBØYS — ZENITH</title>  
-  <style>  
-    :root{  
-      --bg:#08060a;  
-      --glass: rgba(255,255,255,0.03);  
-      --accent1: #ff4d6d; /* pink */  
-      --accent2: #ffd24d; /* yellow */  
-      --accent3: #ff8a00; /* orange */  
-      --neon-cyan: #4bf0ff;  
-      --green: #7cff6b;  
-      --mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;  
-    }  
-    *{box-sizing:border-box}  
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#05050a 0%, #0b0810 60%);font-family:var(--mono);color:#e6e6e6}  
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}.card{width:960px;max-width:98%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:22px;box-shadow:0 8px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}  .header{display:flex;align-items:center;gap:12px}
-.dev-title{font-size:28px;letter-spacing:8px;font-weight:700}
-.rainbow{display:inline-block;padding:4px 10px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--neon-cyan),#b28cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ĐΣBØYS — ZENITH</title>
+  <style>
+    :root {
+      --bg: #050509;
+      --card: rgba(255,255,255,0.03);
+      --accent1: #ff4d6d;
+      --accent2: #ffd24d;
+      --accent3: #ff8a00;
+      --neon: #00fff2;
+      --green: #6bff7c;
+      --mono: 'Source Code Pro', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: linear-gradient(180deg, #07060c 0%, #0b0810 100%);
+      color: #e6e6e6;
+      font-family: var(--mono);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      width: 400px;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+    .title {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      background: linear-gradient(90deg, var(--accent1), var(--neon), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      margin-top: 8px;
+      color: #bbb;
+      font-size: 14px;
+    }
+    .input-area {
+      margin-top: 20px;
+      display: flex;
+      gap: 8px;
+    }
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      font-weight: bold;
+      color: #000;
+      background: linear-gradient(90deg, #fff7c4, #fff0a0);
+    }
+    button {
+      padding: 10px 14px;
+      background: linear-gradient(90deg, var(--neon), var(--accent1));
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .notice {
+      margin-top: 15px;
+      font-weight: 600;
+      min-height: 22px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">ĐΣBØYS</div>
+    <div class="subtitle">ZENITH — Key Access</div>
+    <div class="input-area">
+      <input type="text" id="key" placeholder="Enter Key">
+      <button onclick="checkKey()">Enter</button>
+    </div>
+    <div class="notice" id="notice"></div>
+  </div>
 
-.section{margin-top:18px;padding:18px;border-radius:10px;background:var(--glass);border:1px dashed rgba(255,255,255,0.03)}
+  <script>
+    function checkKey() {
+      const key = document.getElementById('key').value.trim();
+      const notice = document.getElementById('notice');
 
-/* KEY input */
-.key-row{display:flex;gap:12px;align-items:center}
-.label{font-size:13px;opacity:0.9}
-.input-key{padding:12px 14px;border-radius:8px;border:2px solid rgba(0,0,0,0.4);background:rgba(255,255,255,0.02);outline:none;color:#111;font-weight:700}
-.input-key.yellow{background:linear-gradient(90deg,#fff7c4,#fff0a0);color:#111}
-.btn{padding:10px 14px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
-.btn.primary{background:linear-gradient(90deg,var(--neon-cyan),var(--accent1));color:#050505}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
-
-.notice{margin-top:12px;height:28px;display:flex;align-items:center;gap:8px}
+      if (key === "0002") {
+        notice.style.color = "#6bff7c";
+        notice.textContent = "Wait 5 sec...";
+        setTimeout(() => {
+          document.body.innerHTML = `
+            <div style="color:#ff8a00;font-family:'Source Code Pro', monospace;
+                        font-size:22px;text-align:center;margin-top:40vh;">
+              DOCUMENT 419<br><br>
+              <span style="color:#ff4d6d;">ZENITH - B</span>
+            </div>`;
+        }, 5000);
+      } else {
+        notice.style.color = "#ff4d6d";
+        notice.textContent = "Kesalahan key!";
+      }
+    }
+  </script>
+</body>
+</html>
